@@ -1,0 +1,16 @@
+<template name="tabBar">
+<view class="tabBar">
+  <block wx:for="{{tabBar}}" wx:for-item="item" wx:key="tabBar">
+    <view class="tabBar-item">
+			<button plain="{{true}}" open-type="contact" style="border:0;height: auto;width: auto;display: block;font-size: 20rpx;color:#8A8A8A;line-height: initial;" wx:if="{{index==2}}">
+			 <image src="{{item.iconPath}}" class="icon" />
+			  <view class="{{item.current== 1 ? 'tabBartext' :''}}" style="">{{item.text}}</view>
+			</button>
+      <navigator wx:else open-type="redirect" url="{{item.pagePath}}">
+        <view><image class="icon" src='{{item.iconPath}}'></image></view>
+        <view class="{{item.current== 1 ? 'tabBartext' :''}}">{{item.text}}</view>
+      </navigator>  
+    </view>
+  </block>
+</view>
+</template>
